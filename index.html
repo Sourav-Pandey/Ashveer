@@ -3,56 +3,34 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 	<title>Happy Birthday</title>
-	<style type="text/css">
+	<style>
 		*{
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
 			font-family: 'Satisfy', cursive;
 		}
-		body
-		{
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			min-height: 100vh;
-			overflow-x: hidden;
-			overflow-y: hidden;
-			background: #000;
-		}
-		html
-		{
-			font-size: 62.5%;
-		}
 		#container 
 		{
+			padding-top: 50vh;
   			position: relative;
+  			display: flex;
+  			justify-content: center;
+			align-items: center;
 		}
 #container canvas, #overlay {
   position: absolute;
 }
-canvas {
-  border: 1px solid black;
-}
-		.main_header
+		body
 		{
-			width: 100vw;
-			height: 100vh;
-			/*background-color: hsl(0%,0%,94%);*/
-			margin-left: 25vw;
-		}
-		.center_div{
-			min-width: 50vw;
-			height: 40vh;
-			color: #fff;
-			text-shadow: 0 0 2rem rgba(f, f, f, 0.5);
-			font-size: 7rem;
-			display: flex;
-			font-weight: bold;
+			min-height: 100vh;
+			overflow-x: hidden;
+			overflow-y: hidden;
+			background: #000;
 		}
 		img{
 			max-height: 60vh;
@@ -60,7 +38,6 @@ canvas {
 		}
 		.box{
 			position: relative;
-			margin-left: 25vw;
 			width: 200px;
 			height: 200px;
 			transform-style: preserve-3d;
@@ -96,18 +73,19 @@ canvas {
 			height: 100%;
 			object-fit: cover;
 		}
-
+		 p{
+		 	position: absolute;
+		 	margin-bottom: 80vh;
+			color: white;
+			font-size: 4vw;
+			animation: animate1 20s linear infinite;
+		}
 	</style>
 </head>
 <body>
 	<div id="container">
   <canvas id="my-canvas"></canvas>
-  <div class="main_header" id="overlay">
-	<div class="center_div">
-		<p>
-			🎂HAPPY BIRTHDAY🎂
-		</p>
-	</div>
+  <p>🎂HAPPY BIRTHDAY🎂</p>
 	<div class="box" id="overlay">
 		<span style="--i:1"><img src="img1.jpg"></span>
 		<span style="--i:2"><img src="img2.jpg"></span>
@@ -118,9 +96,8 @@ canvas {
 		<span style="--i:7"><img src="img7.jpg"></span>
 		<span style="--i:8"><img src="img8.jpg"></span>
 	</div>
-</div>
-</div>
-<script src="./dist/index.min.js"></script>
+	</div>
+	<script src="./dist/index.min.js"></script>
 <script>
 var confettiSettings = { target: 'my-canvas' };
 var confetti = new ConfettiGenerator(confettiSettings);
