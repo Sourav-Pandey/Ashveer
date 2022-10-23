@@ -14,12 +14,24 @@
 			box-sizing: border-box;
 			font-family: 'Satisfy', cursive;
 		}
-		html{
+		body
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			overflow-x: hidden;
+			overflow-y: hidden;
+			background: #000;
+		}
+		html
+		{
 			font-size: 62.5%;
 		}
-		#container {
-  position: relative;
-}
+		#container 
+		{
+  			position: relative;
+		}
 #container canvas, #overlay {
   position: absolute;
 }
@@ -30,24 +42,59 @@ canvas {
 		{
 			width: 100vw;
 			height: 100vh;
-			background-color: hsl(0%,0%,94%);
-			display: grid;
+			/*background-color: hsl(0%,0%,94%);*/
 			margin-left: 25vw;
 		}
 		.center_div{
 			min-width: 50vw;
 			height: 40vh;
-			color: #000;
-			text-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+			color: #fff;
+			text-shadow: 0 0 2rem rgba(f, f, f, 0.5);
 			font-size: 7rem;
 			display: flex;
 			font-weight: bold;
 		}
-		.image_div{
-
-			border: 2px solid black;
-			height: 40vw;
-			width: 50vh;
+		img{
+			max-height: 60vh;
+			max-width: 60vw;
+		}
+		.box{
+			position: relative;
+			margin-left: 25vw;
+			width: 200px;
+			height: 200px;
+			transform-style: preserve-3d;
+			animation: animate 20s linear infinite;
+		}
+		@keyframes animate
+		{
+			0%{
+				transform: perspective(1000px) rotateY(0deg);
+			}
+			100%{
+				transform: perspective(1000px) rotateY(360deg);
+			}
+		}
+		.box span
+		{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			transform-origin: center;
+			transform-style: preserve-3d;
+			transform: rotateY(calc(Var(--i) * 45deg)) translateZ(400px);
+			-webkit-box-reflect: below 0px linear-gradient(transparent,transparent,#0004);
+		}
+		.box span img
+		{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
 		}
 
 	</style>
@@ -61,8 +108,15 @@ canvas {
 			🎂HAPPY BIRTHDAY🎂
 		</p>
 	</div>
-	<div class="box">
+	<div class="box" id="overlay">
 		<span style="--i:1"><img src="img1.jpg"></span>
+		<span style="--i:2"><img src="img2.jpg"></span>
+		<span style="--i:3"><img src="img3.jpg"></span>
+		<span style="--i:4"><img src="img4.jpg"></span>
+		<span style="--i:5"><img src="img5.jpg"></span>
+		<span style="--i:6"><img src="img6.jpg"></span>
+		<span style="--i:7"><img src="img7.jpg"></span>
+		<span style="--i:8"><img src="img8.jpg"></span>
 	</div>
 </div>
 </div>
